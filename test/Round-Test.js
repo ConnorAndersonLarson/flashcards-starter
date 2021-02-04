@@ -3,8 +3,8 @@ const expect = chai.expect;
 
 const Round = require('../src/Round')
 const Deck = require('../src/Deck')
-const Card = require('../src/Deck')
-const Turn = require('../src/Deck')
+const Card = require('../src/Card')
+const Turn = require('../src/Turn')
 
 describe('Round', function() {
   const card1 = new Card(1, 'What is your name?', ['Sir Lancelot', 'Sir Galahad', 'King Arthur'], 'Sir Lancelot');
@@ -13,21 +13,18 @@ describe('Round', function() {
   const deck = new Deck([card1, card2, card3]);
 
   describe('Attributes', function() {
-    xit('should store a deck', function() {
+    it('should store a deck', function() {
       const round = new Round(deck)
-
-      expect(round.deck).to.deep.equal([card1, card2, card3])
+      expect(round.deck.cards).to.deep.equal([card1, card2, card3])
     })
 
-    xit('should store a turn counter', function() {
+    it('should store a turn counter', function() {
       const round = new Round(deck)
-
       expect(round.turns).to.deep.equal(0)
     })
 
-    xit('should store a list of incorrect guesses', function() {
+    it('should store a list of incorrect guesses', function() {
       const round = new Round(deck)
-
       expect(round.incorrectGuesses).to.deep.equal([])
     })
   })
