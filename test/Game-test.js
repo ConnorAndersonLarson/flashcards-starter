@@ -1,0 +1,44 @@
+const chai = require('chai');
+const expect = chai.expect;
+
+const Round = require('../src/Round');
+const Deck = require('../src/Deck');
+const Card = require('../src/Card');
+const Game = require('../src/Game');
+const data = require('../src/data');
+const prototypeQuestions = data.prototypeData;
+
+describe('Game', function() {
+
+  it('should keep track of current round', function() {
+    const game = new Game();
+    expect(game.currentRound()).to.deep.equal(game.round)
+  })
+
+  describe('Start', function() {
+    it('should create cards and put them in the deck', function() {
+      const game = new Game()
+      game.start()
+      console.log(game.currentRound())
+      expect((game.currentRound()).deck.cards.length).to.deep.equal(30)
+    })
+
+    it('should create a new round using deck', function() {
+      const game = new Game()
+      game.start()
+      expect((game.currentRound()).deck).to.deep.equal(game.deck)
+    })
+
+    it('should invoke PrintMessage', function() {
+      const game = new Game()
+      game.start()
+    })
+
+    it('should invoke printQuestion', function() {
+      const game = new Game()
+      game.start()
+    })
+
+  })
+
+})
