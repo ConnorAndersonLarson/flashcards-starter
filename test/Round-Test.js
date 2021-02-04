@@ -62,24 +62,27 @@ describe('Round', function() {
 
   describe('Other Methods', function() {
 
-    xit('should return the current card being played', function() {
-      const round = new Round(deck)
+    it('should return the current card being played', function() {
+      const newDeck = new Deck([card1, card2, card3]);
+      const round = new Round(newDeck)
       expect(round.returnCurrentCard()).to.deep.equal(card1)
-      round.takeTurn('SirLancelot')
+      round.takeTurn('Sir Lancelot')
       expect(round.returnCurrentCard()).to.deep.equal(card2)
     })
 
-    xit('should return percentage of correct guesses', function() {
-      const round = new Round(deck)
-      round.takeTurn('SirLancelot')
+    it('should return percentage of correct guesses', function() {
+      const newDeck = new Deck([card1, card2, card3]);
+      const round = new Round(newDeck)
+      round.takeTurn('Sir Lancelot')
       round.takeTurn('To eat cheese')
       round.takeTurn('Yellow')
-      expect(round.calculatePercentCorrect()).to.equal(66.6)
+      expect(round.calculatePercentCorrect()).to.equal(66)
     })
 
-    xit('should return a message at end of round', function() {
-      const round = new Round(deck)
-      round.takeTurn('SirLancelot')
+    it('should return a message at end of round', function() {
+      const newDeck = new Deck([card1, card2, card3]);
+      const round = new Round(newDeck)
+      round.takeTurn('Sir Lancelot')
       round.takeTurn('I seek the Grail')
       round.takeTurn('Yellow')
       expect(round.endRound()).to.deep.equal('** Round over! ** You answered 100% of the questions correctly!')

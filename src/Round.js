@@ -16,12 +16,20 @@ class Round {
     this.turns++
     if (!turn.evaluateGuess()) {
       this.incorrectGuesses.push(this.returnCurrentCard())
+      this.deck.cards.shift()
     }else{
       this.deck.cards.shift()
     }
     return(turn.giveFeedback())
   }
 
+  calculatePercentCorrect() {
+    return Math.floor((1-(this.incorrectGuesses.length/this.turns))*100)
+  }
+
+  endRound() {
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+  }
 
 }
 
