@@ -8,27 +8,27 @@ class Round {
   }
 
   returnCurrentCard() {
-    return this.deck.cards[0]
+    return this.deck.cards[0];
   }
 
   takeTurn(guess) {
-    const turn = new Turn(guess, this.returnCurrentCard())
-    this.turns++
+    const turn = new Turn(guess, this.returnCurrentCard());
+    this.turns++;
     if (!turn.evaluateGuess()) {
-      this.incorrectGuesses.push(this.returnCurrentCard())
-      this.deck.cards.shift()
-    }else{
-      this.deck.cards.shift()
+      this.incorrectGuesses.push(this.returnCurrentCard());
+      this.deck.cards.shift();
+    } else {
+      this.deck.cards.shift();
     }
-    return(turn.giveFeedback())
+    return (turn.giveFeedback());
   }
 
   calculatePercentCorrect() {
-    return Math.floor((1-(this.incorrectGuesses.length/this.turns))*100)
+    return Math.floor((1 - (this.incorrectGuesses.length / this.turns)) * 100);
   }
 
   endRound() {
-    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
   }
 
 }
