@@ -21,8 +21,8 @@ Given more time I would go back and improve the `game-test.js`, as well as refac
 Clone the repo to your terminal, cd into the file, and run node `index.js`.  
 
 ## Project Details  
-GamePlay
+GamePlay  
 <img src="/.github/start-flashcards.gif">  
 
-EndGame
+EndGame  
 <img src="/.github/end-flashcards.gif">
