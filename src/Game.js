@@ -12,7 +12,7 @@ class Game {
   }
 
   currentRound() {
-    return this.round
+    return this.round;
   }
 
   start() {
